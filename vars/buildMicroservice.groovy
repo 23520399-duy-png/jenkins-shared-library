@@ -39,7 +39,7 @@ def call(Map config = [:]) {
 
             stage('3. Build Docker Image') {
                 steps {
-                    sh "docker build -t ${FULL_IMAGE} -f src/${SERVICE_NAME}/Dockerfile ."
+		    sh "docker build -t ${FULL_IMAGE} -f src/${SERVICE_NAME}/Dockerfile ./src/${SERVICE_NAME}"
                 }
             }
 
