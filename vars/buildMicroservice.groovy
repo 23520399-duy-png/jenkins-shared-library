@@ -2,7 +2,7 @@ def call(Map config = [:]) {
     pipeline {
         agent any
         environment {
-            SERVICE_NAME = config.serviceName
+            SERVICE_NAME = "${config.serviceName}"
             ACR_URL      = "acrdevopsprod2025.azurecr.io"
             IMAGE_TAG    = "${BUILD_NUMBER}-${GIT_COMMIT.take(7)}"
             FULL_IMAGE   = "${ACR_URL}/${SERVICE_NAME}:${IMAGE_TAG}"
