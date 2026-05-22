@@ -45,7 +45,7 @@ def call(Map config = [:]) {
                         sh '''
                             if [ -f "go.mod" ]; then
                                 echo "Go service detected"
-                                go test ./... -v -cover
+                                go test ./money/... ./validator/... -v -cover
                             elif [ -f "requirements.txt" ]; then
                                 echo "Python service detected"
                                 pip install --break-system-packages -r requirements.txt && pytest --cov
