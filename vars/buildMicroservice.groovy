@@ -115,7 +115,6 @@ def call(Map config = [:]) {
                             wget -qO ./yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
                             chmod +x ./yq
 
-                            ./yq -i '.images.repository = "'${ACR_URL}'"' helm/online-boutique/values.yaml
                             ./yq -i '.'${SERVICE_NAME}'.image.tag = "'${IMAGE_TAG}'"' helm/online-boutique/values.yaml
 
                             git config user.name "Jenkins CI Bot"
