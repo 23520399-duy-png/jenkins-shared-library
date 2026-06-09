@@ -25,7 +25,7 @@ def call(Map config = [:]) {
                     withCredentials([string(credentialsId:'github-token', variable:'GH_TOKEN')]) {
                         sh '''
                             rm -rf /tmp/manifest-repo
-                            git clone https://${GH_TOKEN}@github.com/23520399-duy-png/manifest-repo.git /tmp/manifest-repo
+                            git -c credential.helper= clone https://x-access-token:${GH_TOKEN}@github.com/23520399-duy-png/manifest-repo.git /tmp/manifest-repo
                             echo "Chạy Checkov quét cấu hình K8s..."
                             checkov -d /tmp/manifest-repo/helm/online-boutique \
                                 --framework helm \
